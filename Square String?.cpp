@@ -1,27 +1,29 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
-int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+int main(){
+    int n;
+    cin>>n;
     
-    int t;
-    if (!(cin >> t)) return 0;
-    while (t--) {
+    while(n--){
         string s;
-        cin >> s;
-        int n = s.size();
-        if (n % 2 == 1) {
-            cout << "NO\n";
+        cin>>s;
+        int len=s.length();
+        if(len%2==1){
+            cout<<"NO"<<endl;
             continue;
         }
-        int m = n / 2;
-        bool ok = true;
-        for (int i = 0; i < m; ++i) {
-            if (s[i] != s[i + m]) { ok = false; break; }
+        else{
+            string s1=s.substr(0,len/2);
+            string s2=s.substr(len/2);
+            if(s1==s2){
+                cout<<"YES"<<endl;
+            }
+            else{
+                cout<<"NO"<<endl;
+            }
         }
-        cout << (ok ? "YES\n" : "NO\n");
     }
+    
     return 0;
 }
-
