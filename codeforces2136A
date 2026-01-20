@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int t;
+    cin >> t;
+    while (t--) {
+        int a, b, c, d;
+        cin >> a >> b >> c >> d;
+
+        bool ok = true;
+
+        int r1 = a, k1 = b;
+        if (max(r1, k1) > 2 * (min(r1, k1) + 1))
+            ok = false;
+
+        int r2 = c - a, k2 = d - b;
+        if (max(r2, k2) > 2 * (min(r2, k2) + 1))
+            ok = false;
+
+        cout << (ok ? "YES\n" : "NO\n");
+    }
+
+    return 0;
+}
